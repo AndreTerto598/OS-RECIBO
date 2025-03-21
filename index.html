@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Ordem de Serviço</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-box">
+            <img src="mrrobot.png" alt="Logo da Mr.Robot" class="logo">
+            <div class="header-info">
+                <h1>Mr.Robot</h1>
+                <p>Manutenção em computadores, notebooks e celulares</p>
+                <p>Telefone: (21) 97073-8223 | Email: tertocomercial@gmail.com</p>
+                <p>Instagram: Mr.robotrj | CNPJ: 59.312.318/0001-50</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="info-box">
+            <label><input type="checkbox" id="orcamento"> Orçamento</label>
+            <label><input type="checkbox" id="os"> Ordem de Serviço</label>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" required>
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" required>
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" required>
+        </div>
+
+        <div class="service-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serviço a realizar</th>
+                        <th>Quantidade</th>
+                        <th>Valor (R$)</th>
+                    </tr>
+                </thead>
+                <tbody id="service-list">
+                    <tr>
+                        <td><input type="text" class="servico"></td>
+                        <td><input type="number" class="quantidade" min="1"></td>
+                        <td><input type="number" class="valor" min="0" step="0.01"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" id="add-service">Adicionar Serviço</button>
+        </div>
+
+        <div class="total-box">
+            <p>Total: R$ <span id="total">0.00</span></p>
+        </div>
+
+        <div class="signature-box">
+            <p>Assinatura do Cliente:</p>
+            <hr>
+        </div>
+
+        <button type="submit" id="generate-os">Gerar OS</button>
+        <button type="button" id="print-os">Imprimir OS</button>
+    </main>
+
+    <footer>
+        <a href="ordens.html">Ver Ordens de Serviço</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
