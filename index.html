@@ -4,82 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Ordem de Serviço</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ordem de Serviço - Mr.Robot</title>
+    <link rel="stylesheet" href="style.css"> <!-- Usando arquivo externo CSS -->
 </head>
 
 <body>
-    <header>
-        <div class="header-box">
-            <img src="mrrobot.png" alt="Logo da Mr.Robot" class="logo">
-            <div class="header-info">
-                <h1>Mr.Robot</h1>
-                <p>Manutenção em computadores, notebooks e celulares</p>
-                <p>Telefone: (21) 97073-8223 | Email: tertocomercial@gmail.com</p>
-                <p>Instagram: Mr.robotrj | CNPJ: 59.312.318/0001-50</p>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1><img src="mrrobot.png" alt="Logo da Mr.Robot" class="logo"></h1>
+            <h3><strong> Manutenção em computadores, notebooks e celulares</strong></h3>
+            <p><strong>Endereço:</strong>Rua Treze de Maio 874, Nº 874 |<strong>Bairro:</strong> Vila São Luís
+                |<strong>CEP:</strong> 25065-190 |<strong> Cidade:</strong> Duque de Caxias</p>
+            <p><strong>CNPJ:</strong> 59.312.318/0001-50</p>
+            <p><strong>Tel:</strong> (21) 97073-8223 | <strong>Email:</strong> tertocomercial@gmail.com |
+                <strong>Instagram:</strong> Mr.robotrj</p>
         </div>
-    </header>
 
-    <main>
         <div class="info-box">
-            <label><input type="checkbox" id="orcamento"> Orçamento</label>
-            <label><input type="checkbox" id="os"> Ordem de Serviço</label>
-
-            <label for="data">Data:</label>
-            <input type="date" id="data" required>
-
-            <label for="cliente">Cliente:</label>
-            <input type="text" id="cliente" required>
-
-            <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" required>
-
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" required>
-
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" required>
+            <input type="text" placeholder="Cliente" />
+            <input type="text" placeholder="CPF" />
+            <input type="text" placeholder="Endereço" />
+            <input type="text" placeholder="Cidade/UF" />
+            <input type="text" placeholder="Fone" />
         </div>
 
         <div class="service-box">
             <table>
-                <thead>
-                    <tr>
-                        <th>Serviço a realizar</th>
-                        <th>Quantidade</th>
-                        <th>Valor (R$)</th>
-                    </tr>
-                </thead>
-                <tbody id="service-list">
-                    <tr>
-                        <td><input type="text" class="servico"></td>
-                        <td><input type="number" class="quantidade" min="1"></td>
-                        <td><input type="number" class="valor" min="0" step="0.01"></td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Descrição dos Produtos</th>
+                    <th>Preço</th>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                </tr>
+
+
             </table>
-            <button type="button" id="add-service">Adicionar Serviço</button>
         </div>
+        </section>
 
-        <div class="total-box">
+        <section class="total-box">
             <p>Total: R$ <span id="total">0.00</span></p>
+            <p>Data:____/____/______</p>
+        </section>
+        <div class="FormaPG">
+            <label>Forma de Pagamento:</label>
+            <input type="text">
         </div>
+        <section class="os-options">
+            <div class="option-box">
+                <label for="orcamento">Orçamento</label>
+                <input type="checkbox" id="orcamento">
+            </div>
+            <div class="option-box">
+                <label for="ordem-servico">Ordem de Serviço</label>
+                <input type="checkbox" id="ordem-servico">
+            </div>
+        </section>
+        <section class="signature-box">
+            <div class="prestador-signature">
+                <p><strong>Assinatura do Prestador:</strong></p>
+                <hr>
+            </div>
+            <div class="cliente-signature">
+                <p><strong>Assinatura do Cliente:</strong></p>
+                <hr>
+                </div>
+            </div>
+            
+        </section>
+        
 
-        <div class="signature-box">
-            <p>Assinatura do Cliente:</p>
-            <hr>
+
+        <div class="button-group">
+            <button type="button" id="print-os">Imprimir OS</button>
         </div>
+        </main>
 
-        <button type="submit" id="generate-os">Gerar OS</button>
-        <button type="button" id="print-os">Imprimir OS</button>
-    </main>
-
-    <footer>
-        <a href="ordens.html">Ver Ordens de Serviço</a>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
+    </div>
 </body>
 
 </html>

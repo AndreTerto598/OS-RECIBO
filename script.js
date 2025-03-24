@@ -1,49 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const addServiceBtn = document.getElementById("add-service");
-    const serviceList = document.getElementById("service-list");
-    const totalSpan = document.getElementById("total");
-    const printBtn = document.getElementById("print-os");
+// Seleciona o botão de impressão
+document.getElementById("print-os").addEventListener("click", function() {
+    // Chama a função de impressão do navegador
+    window.print();
+});
 
-    // Função para calcular o total
-    function calcularTotal() {
-        let total = 0;
-        document.querySelectorAll("#service-list tr").forEach(row => {
-            const quantidade = row.querySelector(".quantidade").value;
-            const valor = row.querySelector(".valor").value;
-            if (quantidade && valor) {
-                total += parseFloat(quantidade) * parseFloat(valor);
-            }
-        });
-        totalSpan.textContent = total.toFixed(2);
-    }
+// Função para calcular o total
+function calcularTotal() {
+    let total = 0;
 
-    // Adicionar nova linha de serviço
-    addServiceBtn.addEventListener("click", function () {
-        const newRow = document.createElement("tr");
-        newRow.innerHTML = `
-            <td><input type="text" class="servico"></td>
-            <td><input type="number" class="quantidade" min="1"></td>
-            <td><input type="number" class="valor" min="0" step="0.01"></td>
-            <td><button type="button" class="remove-service">Remover</button></td>
-        `;
-        serviceList.appendChild(newRow);
-    });
+    // Seleciona todas as linhas da tabela, ignorando o cabeçalho
+    document.querySelectorAll('.service-box table tbody tr').forEach(linha => {
+        const quantidadeInput = linha.querySelector('td:nth-child(1) input');
+        const valorInput = linha.querySelector('td:nth-child(3) input');
 
-    // Remover serviço da lista
-    serviceList.addEventListener("click", function (event) {
-        if (event.target.classList.contains("remove-service")) {
-            event.target.closest("tr").remove();
-            calcularTotal();
+        if (quantidadeInput && valorInput) {
+            // Garante que os valores sejam numéricos e não vazios
+            const quantidade = parseFloat(quantidadeInput.value) || 0;
+            const valor = parseFloat(valorInput.value) || 0;
+
+            total += quantidade * valor;
         }
     });
 
-    // Atualizar total sempre que a quantidade ou valor forem alterados
-    serviceList.addEventListener("input", function () {
-        calcularTotal();
-    });
+    // Atualiza o total na página
+    document.getElementById('total').innerText = `R$ ${total.toFixed(2)}`;
+}
 
-    // Função para imprimir a OS
-    printBtn.addEventListener("click", function () {
-        window.print();
-    });
+// Adiciona event listeners para os campos de quantidade e valor
+document.querySelectorAll('.service-box table tbody tr input').forEach(input => {
+    input.addEventListener('input', calcularTotal);
 });

@@ -1,90 +1,202 @@
-/* Estilos Gerais */
+/* Reset e estilos gerais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    background: #f5f5f5;
 }
 
-header {
+.container {
+    max-width: 750px;
+    margin: auto;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.FormaPG {
+    display: flex;  /* Deixa os elementos lado a lado */
+    align-items: center;  /* Alinha verticalmente */
+    gap: 10px;  /* Espaço entre o texto e o input */
+}
+
+.FormaPG input {
+    width: 500px; /* Largura do input */
+    height: 20px; /* Altura do input */
+    font-size: 16px; /* Tamanho da fonte */
+    padding: 5px; /* Espaço interno */
+    border: 1px solid #ccc; /* Borda sutil */
+    border-radius: 5px; /* Cantos arredondados */
+}
+
+/* Cabeçalho */
+.header {
     text-align: center;
     padding: 10px;
-    border: 2px solid #000;
-    
+    border-bottom: 2px solid #000;
 }
 
-.header-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 10px;
-    border: 2px solid #000;
+.header h1 {
+    font-size: 22px;
+    margin: 5px 0;
 }
 
 .logo {
-    height: 80px;
-    margin-right: 10px;
+    height: 200px;
 }
 
-.header-info {
-    text-align: left;
-    flex-grow: 1;
-    color: #000; /* Corrige cor clara na impressão */
+.header p {
+    font-size: 14px;
+    margin: 3px 0;
+}
+/* Estilização do orçamento */
+.orçamento, .os {
+    display: flex; /* Usando flex para alinhar os elementos */
+    align-items: center; /* Alinha verticalmente o texto e o checkbox */
+    margin-right: 15px; /* Espaço entre os checkboxes */
 }
 
-.info-box, .service-box, .total-box, .signature-box {
+.badge {
+    background: #6000b9;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: -3px;
+    margin-top: 15px;
+}
+
+input[type="checkbox"] {
+    margin-left: 5px;
+    transform: scale(1.2);
+    margin-top: 2px;;
+}
+/* Formulário de informações */
+.info-box {
+    
     border: 2px solid #000;
     padding: 10px;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 .info-box input {
-    width: auto;
-    margin-right: 10px;
+    width: 99%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
 }
 
+/* Tabela de serviços */
 .service-box table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
 }
 
 .service-box th, .service-box td {
     border: 1px solid #000;
-    padding: 5px;
+    padding: 6px;
     text-align: center;
+}
+
+.service-box th {
+    background: #ddd;
+}
+/* Ajuste nos tamanhos das colunas */
+.service-box th:nth-child(1),
+.service-box td:nth-child(1) {
+    width: 10%; /* Aumenta o espaço para descrição */
+}
+
+.service-box th:nth-child(2),
+.service-box td:nth-child(2) {
+    width: 55%; /* Reduz quantidade */
+}
+
+.service-box th:nth-child(3),
+.service-box td:nth-child(3) {
+    width: 15%; /* Reduz valor */
+}
+
+.service-box th:nth-child(4),
+.service-box td:nth-child(4) {
+    width: 15%; /* Mantém o total */
 }
 
 .service-box input {
-    width: 90%;
+    width: 95%;
+    padding: 5px;
+    border: none;
 }
 
+/* Ajustando os tamanhos das colunas */
+.service-box .quantidade {
+    width: 5%;
+}
+
+.service-box .descricao {
+    width: 65%;
+}
+
+.service-box .valor {
+    width: 15%;
+}
+
+/* Total e assinatura */
 .total-box {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-align: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 10px;
 }
 
+/* Assinaturas */
 .signature-box {
-    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Distribui o conteúdo entre a esquerda e a direita */
+    padding: 15px;
+}
+
+.signature-box .cliente-signature,
+.signature-box .prestador-signature {
+    display: flex;
+    align-items: center; /* Alinha o texto e a linha verticalmente */
+    width: 45%;
+}
+
+.signature-box p {
+    margin: 0;
+    margin-right: 10px; /* Espaço entre o texto e a linha */
 }
 
 .signature-box hr {
-    width: 50%;
-    margin: 10px auto;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+
+/* Botões */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    background: #007bff;
+    padding: 8px;
+    background: #6000b9;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #5000a0;
 }
 
 /* Estilos de Impressão */
@@ -92,18 +204,29 @@ button:hover {
     body {
         margin: 0;
         padding: 0;
+        background: #fff;
     }
+
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 10px;
+    }
+
     .header-box {
-        border: none;
+        padding: 5px;
         text-align: center;
     }
+
     .header-info {
-        color: #000 !important; /* Garante que a impressão fique legível */
+        font-size: 12px;
     }
+
     .info-box, .service-box, .total-box, .signature-box {
         page-break-inside: avoid;
     }
-    button, footer {
+
+    .button-group, footer {
         display: none;
     }
 }
