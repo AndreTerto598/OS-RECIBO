@@ -77,6 +77,8 @@ input[type="checkbox"] {
     border: 2px solid #000;
     padding: 10px;
     margin-top: 10px;
+    font-size: 16px;
+    margin-right: 5px;
 }
 
 .info-box input {
@@ -85,6 +87,28 @@ input[type="checkbox"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 5px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+.Cliente{
+    display: flex;
+    align-items: center;
+}
+.CPF{
+    display: flex;
+    align-items: center;
+}
+.Endereco{
+    display: flex;
+    align-items: center;
+}
+.Cidade{
+    display: flex;
+    align-items: center;
+}
+.Telefone{
+    display: flex;
+    align-items: center;
 }
 
 /* Tabela de serviços */
